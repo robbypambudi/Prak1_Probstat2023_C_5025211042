@@ -318,6 +318,90 @@ Dari data diatas terdapat perbedaan hasil simulasi dengan hasil perhitungan, nam
 
 ## Soal 3
 
+> Diketahui Nilai X = 3 dan v = 10. Tentukan : 
+
+a. Fungsi probabilitas dari distribusi Chi-Square
+
+Fungsi probabilitas dari distribusi Chi-Square dapat dihitung dengan menggunakan rumus berikut ini :
+
+$$f(x) = \frac{1}{2^{\frac{v}{2}}\Gamma(\frac{v}{2})}x^{\frac{v}{2}-1}e^{-\frac{x}{2}}$$
+
+debgan $\Gamma$ adalah fungsi gamma dengan parameter $\frac{v}{2}$.
+
+Untuk x = 3 dan v = 10, maka fungsi probabilitas dari distribusi Chi-Square adalah :
+
+$$f(3) = \frac{1}{2^{\frac{10}{2}}\Gamma(\frac{10}{2})}3^{\frac{10}{2}-1}e^{-\frac{3}{2}}$$
+
+$$f(3) = \frac{1}{2^{5}\Gamma(5)}3^{4}e^{-\frac{3}{2}}$$
+
+$$f(3) = \frac{1}{32\Gamma(5)}81e^{-\frac{3}{2}}$$
+
+$$f(3) = \frac{1}{32(4!)}81e^{-\frac{3}{2}}$$
+
+$$f(3) = \frac{1}{32(24)}81e^{-\frac{3}{2}}$$
+
+$$f(3) = \frac{1}{768}81e^{-\frac{3}{2}}$$
+
+$$f(3) = \frac{81}{768}e^{-\frac{3}{2}}$$
+
+$$f(3) = 0.0235333$$
+
+Untuk menghitung nilai probabilitas dalam R, kita dapat menggunakan fungsi `dchisq`. Berikut ini adalah sintaks untuk menghitung nilai probabilitas dari distribusi Chi-Square :
+
+```r
+# Menghitung nilai probabilitas dari distribusi Chi-Square
+x = 3
+v = 10
+
+# Menghitung nilai probabilitas dari distribusi Chi-Square
+prob = dchisq(x, v)
+
+print(paste("Nilai probabilitas dari distribusi Chi-Square adalah", prob))
+```
+
+```
+"Nilai probabilitas dari distribusi Chi-Square adalah 0.0235332590781547"
+```
+
+b. Histogram dari distribusi Chi-Square dengan 500 data acak
+
+Untuk menghasilkan sampel acak dari distribusi Chi-Square, kita dapat menggunakan fungsi `rchisq`. Berikut ini adalah sintaks untuk menghasilkan sampel acak dari distribusi Chi-Square :
+
+```r
+# Menghasilkan sampel acak dari distribusi Chi-Square
+sample = rchisq(500, v)
+
+# Membuat histogram dari distribusi Chi-Square
+hist(sample, main = "Histogram dari distribusi Chi-Square", xlab = "Nilai", ylab = "Frekuensi")
+```
+
+![Histogram](https://res.cloudinary.com/dfrdfvhey/image/upload/v1682949270/Prakitkum_1_Probstat/Histogram_C_Square_w5mqbo.png)
+
+c. Nilai raatan $\mu$ dan $\sigma^2$ dari distribusi Chi-Square 
+
+Untuk menghitung nilai rata-rata dan varians dari distribusi Chi-Square, kita dapat menggunakan fungsi `mean` dan `var`. Berikut ini adalah sintaks untuk menghitung nilai rata-rata dan varians dari distribusi Chi-Square :
+
+```r
+# Menghitung nilai rata-rata dari distribusi Chi-Square
+mean = mean(sample)
+
+print(paste("Nilai rata-rata dari distribusi Chi-Square adalah", mean))
+
+# Menghitung nilai varians dari distribusi Chi-Square
+var = var(sample)
+
+print(paste("Nilai varians dari distribusi Chi-Square adalah", var))
+```
+
+```
+"Nilai rata-rata dari distribusi Chi-Square adalah 10.1172098876776"
+
+"Nilai varians dari distribusi Chi-Square adalah 19.0266536541921"
+```
+
+
+
+
 
 
 
