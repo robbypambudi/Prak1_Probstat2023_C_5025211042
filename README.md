@@ -5,6 +5,7 @@
     - [Soal 2](#soal-2)
   - [Soal 3](#soal-3)
     - [Soal 4](#soal-4)
+    - [Soal 5](#soal-5)
 
 ## Prakikum Modul 1
 Nama : Robby Ulung Pambudi </br>
@@ -445,7 +446,7 @@ hist(sample, breaks = 50, main = "Histogram dari distribusi Normal", xlab = "Nil
 ```
 ![Histogram](https://res.cloudinary.com/dfrdfvhey/image/upload/v1682950598/Prakitkum_1_Probstat/Histogram_4b_wbbec8.png)
 
-c. Nilai varian dan dari hasil data bangkitan acak distribusi normal
+c. Nilai varian dari hasil data bangkitan acak distribusi normal
 
 Untuk menghitung nilai varians dari distribusi normal, kita dapat menggunakan fungsi `var`. Berikut ini adalah sintaks untuk menghitung nilai varians dari distribusi normal :
 
@@ -460,11 +461,132 @@ print(paste("Nilai varians dari distribusi normal adalah", var))
 "Nilai varians dari distribusi normal adalah 22.5594544435109
 ```
 
+### Soal 5
+>Kerjakanlah menggunakan distribusi T-Student
 
+a. Berapa probabilitas terjadinya suatu peristiwa acak X kurang dari -2,34 dengan 6 derakat kebebasan?
 
+Untuk menghitung nilai probabilitas dari distribusi T-Student, kita dapat menggunakan fungsi `pt`. Berikut ini adalah sintaks untuk menghitung nilai probabilitas dari distribusi T-Student :
 
+```r
+x = -2.34
+df = 6
 
+# Menghitung nilai probabilitas dari distribusi T-Student
+prob = pt(x, df)
 
+print(paste("Nilai probabilitas dari distribusi T-Student adalah", prob))
+```
 
+```
+"Nilai probabilitas dari distribusi T-Student adalah 0.0289219701335075"
+```
 
+b. Berapa probabilitas terjadinya suatu peristiwa acak X lebih dari 1,34 dengan 6 derajat kebebasan?
 
+Untuk menghitung nilai probabilitas dari distribusi T-Student, kita dapat menggunakan fungsi `pt` dengan menambahkan argumen `lower.tail = FALSE` karena kita ingin menghitung nilai probabilitas dari distribusi T-Student yang lebih dari 1,34. Berikut ini adalah sintaks untuk menghitung nilai probabilitas dari distribusi T-Student :
+
+```r
+x = 1.34
+df = 6
+
+# Menghitung nilai probabilitas dari distribusi T-Student
+prob = pt(x, df, lower.tail = FALSE)
+
+print(paste("Nilai probabilitas dari distribusi T-Student adalah", prob))
+```
+
+```
+"Nilai probabilitas dari distribusi T-Student adalah 0.11437999241044"
+```
+
+c. Berapa probabilitas terjadinya suatu peristiwa acak X kurang dari -1,23 atau lebih besar dari 1,23 dengan 3 derajat kebebasan
+
+```r
+x1 = -1.23
+x2 = 1.23
+df = 3
+
+# Menghitung nilai probabilitas dari distribusi T-Student
+prob = pt(x1, df) + pt(x2, df, lower.tail = FALSE)
+
+print(paste("Nilai probabilitas dari distribusi T-Student adalah", prob))
+```
+```
+"Nilai probabilitas dari distribusi T-Student adalah 0.306355992486918"
+```
+
+d. Berapa probabilitas terjadinya suatu peristiwa acak X berada di antara -0,94 dan 0.94 dengan 14 derajat kebebasan?
+
+```r
+x1 = -0.94
+x2 = 0.94
+
+# Menghitung nilai probabilitas dari distribusi T-Student
+prob = pt(x2, df) - pt(x1, df)
+
+print(paste("Nilai probabilitas dari distribusi T-Student adalah", prob))
+```
+
+```
+"Nilai probabilitas dari distribusi T-Student adalah 0.583436595003192"
+```
+
+e. Berapa nilai t-score dengan 5 derajat kebebasan yang memiliki luasan 0,0333 suatu persegi di bawah kurva dan di sebelah kiri t-score tersebut?
+
+```r
+df = 5
+prob = 0.0333
+
+# Menghitung nilai t-score
+t = qt(prob, df)
+
+print(paste("Nilai t-score adalah", t))
+```
+
+```
+"Nilai t-score adalah -2.33734195836503"
+```
+
+f. Berapa nilai t-score dengan 25 derajat kebebasan yang memiliki luasan 0,125 suatu persegi di bawah kurva dan di sebelah kanan t-score tersebut?
+
+```r
+df = 25
+prob = 0.125
+
+# Menghitung nilai t-score
+t = qt(prob, df, lower.tail = FALSE)
+
+print(paste("Nilai t-score adalah", t))
+``` 
+```
+ "Nilai t-score adalah 1.17771600333508"
+```
+
+g. Berapa nilai t-score dengan 11 derajat kebebasan yang memiliki luasan 0.75 suatu persegi di bawah kurva dan di antara t-score tersebut dan negetaif dari nilai t-score tersebut?
+
+```r
+df = 11
+prob = 0.75
+
+# Menghitung nilai t-score
+t = qt(prob, df) - qt(prob, df, lower.tail = FALSE)
+
+print(paste("Nilai t-score adalah", t))
+```
+
+```
+"Nilai t-score adalah 1.39489065511976"
+```
+
+h. Berapa nilai t-score dengan 23 derajat kebebasan yang memiliki luasan 0,0333 suatu persegi di bawah kurva dan di luar interval antara t-score tersebut dan negatif dari nilai t-score tersebut?
+
+```r
+df = 23
+prob = 0.0333
+
+# Menghitung nilai t-score
+t = qt(prob, df) + qt(prob, df, lower.tail = FALSE)
+
+print(paste("Nilai t-score adalah", t))
+```
