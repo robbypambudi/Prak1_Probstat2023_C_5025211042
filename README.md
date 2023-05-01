@@ -4,6 +4,7 @@
     - [Soal 1](#soal-1)
     - [Soal 2](#soal-2)
   - [Soal 3](#soal-3)
+    - [Soal 4](#soal-4)
 
 ## Prakikum Modul 1
 Nama : Robby Ulung Pambudi </br>
@@ -397,6 +398,66 @@ print(paste("Nilai varians dari distribusi Chi-Square adalah", var))
 "Nilai rata-rata dari distribusi Chi-Square adalah 10.1172098876776"
 
 "Nilai varians dari distribusi Chi-Square adalah 19.0266536541921"
+```
+
+### Soal 4
+
+>Diketahui data bangkitan acak sebanyak 100 dengan mean = 45 dan sd = 5. Tentukan :
+
+a. Fungsi probabilitas dari distribusi normal $P(X1 <= x <= X2)$, hitung z-scorenya dan plot data bankitan acaknya dalam bentuk grafik. Petunjuk (gunakan fungsi plot)
+
+Untuk menghitung fungsi probabilitas dari distribusi normal, kita dapat menggunakan fungsi `pnorm`. Berikut ini adalah sintaks untuk menghitung fungsi probabilitas dari distribusi normal :
+
+```r
+mean = 45
+sd = 5
+n = 100
+
+# Generate data bangkitan acak
+sample = rnorm(n, mean, sd)
+
+x1 = 40
+x2 = 50
+
+# Calculate z-score
+z1 = (x1 - mean) / sd
+z2 = (x2 - mean) / sd
+
+# Menghitung fungsi probabilitas dari distribusi normal
+prob = pnorm(z2) - pnorm(z1)
+
+# Plot data bangkitan acak
+plot(sample, main = "Data Bangkitan Acak", xlab = "Nilai", ylab = "Frekuensi")
+```
+
+![Ploting](https://res.cloudinary.com/dfrdfvhey/image/upload/v1682950419/Prakitkum_1_Probstat/Plot_4a_hpgpts.png)
+
+b. Gambarkan histogram dari distribusi Normal dengan breaks 50
+
+Untuk menghasilkan sampel acak dari distribusi normal, kita dapat menggunakan fungsi `rnorm`. Berikut ini adalah sintaks untuk menghasilkan sampel acak dari distribusi normal :
+
+```r
+# Menghasilkan sampel acak dari distribusi normal
+sample = rnorm(500, mean, sd)
+
+# Membuat histogram dari distribusi normal
+hist(sample, breaks = 50, main = "Histogram dari distribusi Normal", xlab = "Nilai", ylab = "Frekuensi")
+```
+![Histogram](https://res.cloudinary.com/dfrdfvhey/image/upload/v1682950598/Prakitkum_1_Probstat/Histogram_4b_wbbec8.png)
+
+c. Nilai varian dan dari hasil data bangkitan acak distribusi normal
+
+Untuk menghitung nilai varians dari distribusi normal, kita dapat menggunakan fungsi `var`. Berikut ini adalah sintaks untuk menghitung nilai varians dari distribusi normal :
+
+```r
+# Menghitung nilai varians dari distribusi normal
+var = var(sample)
+
+print(paste("Nilai varians dari distribusi normal adalah", var))
+```
+
+```
+"Nilai varians dari distribusi normal adalah 22.5594544435109
 ```
 
 
